@@ -6,25 +6,26 @@
 
 /* Container */
 .loginbox {
-  width: 90%;
-  max-width: 400px;   /* limits size on large screens */
-  margin: 40px auto;
+  width: 95%;
+  max-width: 400px;
+  margin: 20px auto;
   border: 2px solid black;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
 }
 
 /* Inputs */
 .input {
   padding: 10px;
-  width: 100%;        /* full width */
+  width: 100%;
   box-sizing: border-box;
+  font-size: 14px;
 }
 
 /* Labels */
 label {
   width: 100%;
-  padding: 8px 0;
+  padding: 6px 0;
   font-size: 14px;
 }
 
@@ -32,7 +33,7 @@ label {
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;   /* spacing between elements */
+  gap: 10px;
 }
 
 /* Button */
@@ -44,16 +45,40 @@ form button {
   border-radius: 20px;
   width: 100%;
   cursor: pointer;
+  font-size: 14px;
 }
 
-/* 🔽 Tablet */
-@media (min-width: 768px) {
+/* Extra small screens (phones <480px) */
+@media (max-width: 480px) {
   .loginbox {
-    max-width: 500px;
+    padding: 12px;
+    margin: 10px;
+  }
+
+  .input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  form button {
+    padding: 8px;
+    font-size: 13px;
   }
 }
 
-/* 🔽 Large screens */
+/*  Tablet */
+@media (min-width: 768px) {
+  .loginbox {
+    max-width: 500px;
+    padding: 20px;
+  }
+}
+
+/* Large screens */
 @media (min-width: 1024px) {
   .loginbox {
     max-width: 600px;

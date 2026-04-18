@@ -57,7 +57,7 @@ export default function Signup() {
               });
 
               const data = await res.json();
-
+localStorage.setItem("token", data.token);
               if (!res.ok) {
                 throw new Error(data.message || "Signup failed");
               }

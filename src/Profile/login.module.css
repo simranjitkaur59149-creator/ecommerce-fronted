@@ -1,3 +1,8 @@
+/* Apply to all elements to prevent padding from breaking widths */
+* {
+  box-sizing: border-box;
+}
+
 .error {
   color: red;
   font-size: 14px;
@@ -6,34 +11,40 @@
 
 /* Container */
 .loginbox {
-  width: 95%;
+  width: 90%;             /* Use 90% for better side-spacing on mobile */
   max-width: 400px;
-  margin: 20px auto;
+  /* Added 120px top margin to clear your floating navigation bar */
+  margin: 120px auto 40px; 
   border: 2px solid black;
-  padding: 15px;
+  padding: 20px;
   border-radius: 10px;
+  background-color: #fff; /* Ensures text is readable over background */
 }
 
 /* Inputs */
 .input {
-  padding: 10px;
+  padding: 12px;         /* Slightly larger touch target */
   width: 100%;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 16px;       /* 16px prevents auto-zoom on mobile browsers */
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 /* Labels */
 label {
+  display: block;        /* Ensures label stays above input */
   width: 100%;
-  padding: 6px 0;
+  padding: 8px 0 4px 0;
   font-size: 14px;
+  font-weight: bold;
 }
 
 /* Form layout */
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;            /* Adds consistent vertical space between fields */
 }
 
 /* Button */
@@ -41,23 +52,26 @@ form button {
   background-color: rgb(6, 165, 228);
   color: white;
   border: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 20px;
   width: 100%;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-/* Extra small screens (phones <480px) */
+/*  Extra small screens (phones <480px) */
 @media (max-width: 480px) {
   .loginbox {
-    padding: 12px;
-    margin: 10px;
+    margin-top: 100px;  /* Slightly less margin for smaller screens */
+    padding: 15px;
+    width: 95%;
   }
 
   .input {
-    padding: 8px;
-    font-size: 13px;
+    padding: 10px;
+    font-size: 14px;
   }
 
   label {
@@ -65,22 +79,23 @@ form button {
   }
 
   form button {
-    padding: 8px;
-    font-size: 13px;
+    padding: 10px;
+    font-size: 14px;
   }
 }
 
-/*  Tablet */
+/* Tablet */
 @media (min-width: 768px) {
   .loginbox {
-    max-width: 500px;
-    padding: 20px;
+    max-width: 450px;
+    padding: 30px;
+    margin-top: 150px;
   }
 }
 
 /* Large screens */
 @media (min-width: 1024px) {
   .loginbox {
-    max-width: 600px;
+    max-width: 500px;
   }
 }

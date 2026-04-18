@@ -1,0 +1,33 @@
+.cardbox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 90%;
+  margin: 50px auto;
+  gap: 20px;
+}
+
+.cards {
+  width: 100%;
+  max-width: 250px;
+  height: 350px;              /* 👈 force same height */
+  padding: 16px;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin: auto;
+text-decoration: none;
+color: black;
+  display: flex;              /* 👈 align content */
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: 0.3s;
+}
+
+.cards:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 480px) {
+  .cards:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,30 @@
+.img-container {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: black;
+  font-weight: 900;
+  max-width: 80%;
+}
+
+.text-container h1 {
+  font-size: clamp(28px, 5vw, 55px);
+}
+
+.text-container p {
+  font-size: clamp(14px, 3vw, 20px);
+}
+@media (max-width: 480px) {
+  .text-container {
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+}

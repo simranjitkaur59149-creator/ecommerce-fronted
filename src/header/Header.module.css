@@ -1,0 +1,116 @@
+/* 1. Global Reset & Base Header */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  padding: 15px 5%; /* Percentage padding scales with screen size */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* 2. Navigation Styling */
+.navbar {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  align-items: center;
+}
+
+.links {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.links:hover {
+  color: rgb(6, 165, 228);
+}
+
+/* 3. Components (Button & Cart) */
+.loginbtn {
+  background-color: rgb(6, 165, 228);
+  color: white;
+  border: 1px solid transparent;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.loginbtn:hover {
+  background-color: #058cc4;
+  transform: translateY(-1px);
+}
+
+.carticon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cartbadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  border: 2px solid white; /* Makes the badge pop */
+}
+
+/* --- 4. RESPONSIVE BREAKPOINTS --- */
+
+/* For Tablets and Small Laptops */
+@media (max-width: 1024px) {
+  .header {
+    padding: 15px 3%;
+  }
+  .navbar {
+    gap: 15px;
+  }
+}
+
+/* For Phones (The "Stacking" point) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Stacks logo above nav */
+    padding: 15px 10px;
+    gap: 15px;
+  }
+
+  .navbar {
+    width: 100%;
+    justify-content: center; /* Centers links on mobile */
+    gap: 20px;
+    flex-wrap: wrap; /* Prevents items from falling off screen */
+  }
+
+  .links {
+    font-size: 14px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .navbar {
+    gap: 12px;
+  }
+  .loginbtn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,12 @@
+.about {
+  padding: 20px 30px;
+  /* background-color: gray; */
+  font-size: 18px;
+  line-height: 34px;
+}
+ul li {
+  list-style: none;
+}
+h2 {
+  text-decoration: underline;
+}

@@ -1,0 +1,26 @@
+.box1 {
+  width: 90%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.addto {
+  background-color: rgb(6, 165, 228);
+  color: white;
+  border: 2px solid white;
+  padding: 12px;
+  border-radius: 20px;
+  margin: 10px 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .box1 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

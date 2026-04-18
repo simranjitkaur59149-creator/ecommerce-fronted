@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
 import loginstyle from "./login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
  import { ToastContainer, toast } from 'react-toastify';
 
 //  Validation Schema
@@ -25,6 +25,7 @@ const schema = yup.object({
 });
 
 export default function Signup() {
+  const navigate=useNavigate()
   return (
     <>
       <div className={loginstyle.loginbox}>
@@ -119,7 +120,7 @@ toast("Signup successfully")
             <br />
             <br />
 
-            <button type="submit">Sign-up</button>
+            <button onClick={()=>navigate("/login")} type="submit">Sign-up</button>
 
             <br />
             <br />

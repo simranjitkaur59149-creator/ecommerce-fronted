@@ -131,6 +131,7 @@ toast("Signup successfully")
           If you already have an account <Link to="/login">Login</Link>
         </p>
       </div>
+      <ToastContainer/>
     </>
   );
 }

@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useCart } from "./CartProvider";
 import Emptycart from "./Emptycart.jsx";
-import "./cart.css"
+import "./cart.css";
+
 export default function CartPage() {
-  // Pull cartItems and fetchCart from context
   const { cartItems, removeFromCart, fetchCart } = useCart();
   const username = localStorage.getItem("Username");
 
   useEffect(() => {
-    fetchCart(); // Call the fetch function from context
+    fetchCart();
   }, []);
 
   const total = Array.isArray(cartItems)
@@ -16,19 +16,18 @@ export default function CartPage() {
     : 0;
 
   return (
-    <>
-      <div>
-        {username && (
-          <div style={{ textAlign: "center", margin: "20px", color: "gray" }}>
-            <h1>Welcome, {username}</h1>
-          </div>
-        )}
+    <div className="cart-page-wrapper">
+      {username && (
+        <div className="welcome-banner">
+          <h1>Welcome, {username}</h1>
+        </div>
+      )}
 
-        {cartItems.length === 0 ? (
-          <Emptycart/>
-          // <Emptycart/>
-        ) : (
-          <table border="2px">
+      {cartItems.length === 0 ? (
+        <Emptycart />
+      ) : (
+        <div className="cart-container">
+          <table className="cart-table">
             <thead>
               <tr>
                 <th>Title</th>
@@ -41,26 +40,25 @@ export default function CartPage() {
             <tbody>
               {cartItems.map((item) => (
                 <tr key={item.productId}>
-                  <td>{item.title}</td>
-                  <td>${item.price}</td>
-                  <td>{item.quantity}</td>
-                  <td>${(item.price * item.quantity).toFixed(2)}</td>
-                  <td>
+                  <td data-label="Title">{item.title}</td>
+                  <td data-label="Price">${item.price}</td>
+                  <td data-label="Quantity">{item.quantity}</td>
+                  <td data-label="Subtotal">${(item.price * item.quantity).toFixed(2)}</td>
+                  <td data-label="Action">
                     <button className="remove-btn" onClick={() => removeFromCart(item.productId)}>
                       Remove
                     </button>
                   </td>
                 </tr>
               ))}
-              <tr>
-                <td colSpan="4" style={{ textAlign: "right" }}>
-                  Total Amount: ${total.toFixed(2)}
-                </td>
-              </tr>
             </tbody>
           </table>
-        )}
-      </div>
-    </>
+          
+          <div className="cart-total-section">
+            <h2>Total Amount: ${total.toFixed(2)}</h2>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

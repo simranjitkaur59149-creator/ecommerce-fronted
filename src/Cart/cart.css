@@ -1,94 +1,181 @@
-/* 1. Base Table Styling */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 30px 0;
-  font-family: sans-serif;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+/* 1. Global Wrapper & Layout */
+.cart-page-wrapper {
+  padding: 15px;
+  max-width: 1100px;
+  margin: 100px auto 40px; /* High top margin to clear floating Navbars */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-thead {
+.welcome-banner {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.welcome-banner h1 {
+  font-size: clamp(22px, 5vw, 36px);
+  margin: 0;
+}
+
+/* 2. Table Core Styling (Desktop) */
+.cart-container {
+  width: 100%;
+  background: #fff;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden; /* Clips corners of the shadow/border */
+}
+
+.cart-table thead {
   background-color: rgb(6, 165, 228);
   color: white;
 }
 
-th, td {
-  padding: 12px 15px;
+.cart-table th, 
+.cart-table td {
+  padding: 15px;
   text-align: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
-table img {
-  width: 60px;
+.cart-table img {
+  width: 70px;
   height: auto;
-  border-radius: 5px;
+  border-radius: 4px;
   display: block;
   margin: 0 auto;
 }
 
-/* 2. Button Styling */
+/* 3. Action Buttons */
 .remove-btn {
   background-color: #ff4d4d;
   color: white;
   border: none;
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .remove-btn:hover {
   background-color: #cc0000;
+  transform: translateY(-1px);
 }
 
-/* --- 3. RESPONSIVE MEDIA QUERY --- */
+.cart-total-section {
+  text-align: right;
+  padding: 25px;
+  margin-top: 20px;
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+/* 4. Empty Cart Component */
+.empty-cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.empty-cart-title {
+  color: #e63946;
+  font-size: clamp(18px, 4vw, 28px);
+  margin-bottom: 20px;
+}
+
+.empty-cart-image-wrapper {
+  width: 100%;
+  max-width: 500px;
+  opacity: 0.25;
+}
+
+.empty-cart-img {
+  width: 100%;
+  height: auto;
+}
+
+/* --- 5. RESPONSIVE BREAKPOINT (Tablets & Phones) --- */
 
 @media (max-width: 768px) {
-  /* Hide the table header completely on mobile */
-  table thead {
+  .cart-page-wrapper {
+    margin-top: 80px;
+    padding: 10px;
+  }
+
+  /* Hide Table Headers */
+  .cart-table thead {
     display: none;
   }
 
-  /* Force table, rows, and cells to act like blocks */
-  table, table tbody, table tr, table td {
+  /* Turn Rows into Cards */
+  .cart-table, 
+  .cart-table tbody, 
+  .cart-table tr, 
+  .cart-table td {
     display: block;
     width: 100%;
   }
 
-  table tr {
-    margin-bottom: 15px;
+  .cart-table tr {
+    margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 10px;
     background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
 
-  table td {
-    text-align: right; /* Values on the right */
-    padding-left: 50%; /* Make room for labels on the left */
-    position: relative;
-    border-bottom: 1px solid #eee;
+  .cart-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    padding: 12px 8px;
+    border-bottom: 1px solid #f0f0f0;
   }
 
-  table td:last-child {
+  .cart-table td:last-child {
     border-bottom: none;
   }
 
-  /* Create the labels on the left using the data-label attribute */
-  table td::before {
-    content: attr(data-label); /* Pulls text from the HTML attribute */
-    position: absolute;
-    left: 10px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-    text-align: left;
-    font-weight: bold;
-    color: #555;
+  /* Labels for Mobile using data-label */
+  .cart-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  .cart-table img {
+    margin: 0; /* Keep image left or right as preferred */
+    width: 60px;
+  }
+
+  .cart-total-section {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra Small Phones */
+@media (max-width: 480px) {
+  .welcome-banner h1 {
+    font-size: 20px;
   }
   
-  table img {
-    margin: 0 0 0 auto; /* Align image to the right on mobile */
+  .remove-btn {
+    width: 100%; /* Make button full width on tiny phones */
+    padding: 10px;
   }
 }

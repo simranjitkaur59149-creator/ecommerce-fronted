@@ -12,4 +12,3 @@ export default function HomePage()
         </>
     )
 }
-// https://chatgpt.com/s/m_6973c59eae888191bf24866c77c625f0
